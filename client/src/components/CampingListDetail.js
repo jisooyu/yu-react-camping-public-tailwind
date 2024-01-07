@@ -26,7 +26,25 @@ export default function CampingListDetail({ items }) {
 					{item.facltNm}
 					{icon}
 				</div>
-				{isExpanded && <div className='border-b p-5'>{item.lineIntro}</div>}
+				{isExpanded && (
+					<div className='border-b p-5'>
+						{item.lineIntro}
+						<img
+							loading='lazy'
+							src={item.firstImageUrl || 'no-image-available.jpeg'}
+							alt='campingPicture'
+						/>
+						<a
+							className='text-black 
+											underline text-xs hover:text-red-500 '
+							href={item.homepage}
+						>
+							Home Page Link
+						</a>
+						<p>캠핑장 주소:{item.addr1}</p>
+						<p>펫입장여부:{item.animalCmgCl}</p>
+					</div>
+				)}
 			</div>
 		);
 	});
